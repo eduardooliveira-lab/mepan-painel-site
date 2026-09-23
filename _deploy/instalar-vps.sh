@@ -13,7 +13,8 @@ REPO=https://github.com/eduardooliveira-lab/mepan-painel-site.git
 
 echo "==> Pacotes"
 apt-get update -qq
-DEBIAN_FRONTEND=noninteractive apt-get install -y -qq nginx certbot python3-certbot-nginx git dnsutils curl >/dev/null
+DEBIAN_FRONTEND=noninteractive apt-get install -y -qq nginx certbot python3-certbot-nginx git dnsutils curl cron >/dev/null
+systemctl enable --now cron >/dev/null 2>&1 || true
 
 echo "==> Site em $DIR"
 mkdir -p /var/www
